@@ -1,5 +1,9 @@
 # VSCODE
 .vscode/*
+# pycache
+__pycache__/*
+# jupyter
+.ipynb_checkpoints/*
 # Mac OS
 # General
 .DS_Store
