@@ -35,12 +35,17 @@ def collect_urls_by_keyword(keyword: str, n_max: int):
 
 def get_images_from_urls(urls):
     """Read images from urls"""
-    return [io.imread(url) for url in urls]
+    images = []
+    for i, url in enumerate(urls):
+        images.append(io.imread(url))
+        print("%dth image downloaded" % i)
+    return images
 
 def save_images(images, prefix, path):
     """Save images to file"""
     for i, img in enumerate(images):
         io.imsave(os.path.join(path, prefix + str(i) + '.jpg'), img)
+        print("saved %dth images" % i)
 
 def main():
     for keyword in keywords:
