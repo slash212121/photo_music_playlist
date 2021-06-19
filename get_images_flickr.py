@@ -7,7 +7,7 @@ api_secret = u'b8f61718b615bb8e'
 flickr = flickrapi.FlickrAPI(api_key, api_secret, cache=True)
 
 # 키워드는 바꾸기 가능
-keywords = ['love', 'enjoy', 'sentimental', 'sad', 'stressed']
+keywords = ['enjoy']
 # 이미지 개수도 바꾸기 가능
 n_max = 10
 
@@ -37,8 +37,11 @@ def get_images_from_urls(urls):
     """Read images from urls"""
     images = []
     for i, url in enumerate(urls):
-        images.append(io.imread(url))
-        print("%dth image downloaded" % i)
+        try:
+            images.append(io.imread(url))
+            print("%dth image downloaded" % i)
+        except Exception:
+            continue
     return images
 
 def save_images(images, prefix, path):
