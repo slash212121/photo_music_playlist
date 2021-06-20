@@ -12,7 +12,7 @@ from playlist.models import Music
 
 # Create your views here.
 def index(request):
-    return render(request, 'playlist/index.html')
+    return render(request, 'playlist/index_copy.html')
 
 def recommend(request):
     image = request.FILES['imageUpload']
