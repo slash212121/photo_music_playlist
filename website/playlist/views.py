@@ -29,9 +29,7 @@ def _grab_image(path=None, stream=None, url=None):
         elif stream is not None:
             data = stream.read()
 		# convert the image to a NumPy array and then read it into
-		# OpenCV format
         bytearr = bytearray(data)
         image = Image.open(io.BytesIO(bytearr))
     image = np.asarray(image)
-    print(image.shape)
     return image
