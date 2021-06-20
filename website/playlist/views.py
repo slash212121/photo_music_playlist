@@ -1,9 +1,14 @@
 from django.shortcuts import render
+from website.settings import MEDIA_ROOT
 
+import os
+import json
 import numpy as np
 import urllib
 import io
 from PIL import Image
+
+from playlist.models import Music
 
 # Create your views here.
 def index(request):
@@ -11,8 +16,22 @@ def index(request):
 
 def recommend(request):
     image = request.FILES['imageUpload']
-    image = _grab_image(stream=image)
-    return render(request, 'playlist/list.html')
+    image_arr = _grab_image(stream=image)
+    image_save = Image.fromarray(image_arr)
+    # 사용자로부터 받은 이미지 저장
+    image_save.save(os.path.join(MEDIA_ROOT, 'temp.png'))
+    ############ model part ###########
+
+
+    ###################################
+    # temporary output
+    results = list(Music.objects.all()[:10])
+    results = [
+        {'artist_name': r.artist_name, 'music_name': r.music_name} \
+        for r in results 
+    ]
+    results = json.dumps(results)
+    return render(request, 'playlist/list.html', {'results': results})
 
 def _grab_image(path=None, stream=None, url=None):
     # if the path is not None, then load the image from disk
