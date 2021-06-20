@@ -25,8 +25,8 @@ def insert_data():
             sad = row['sad']
             stressed = row['stressed']
             music = Music(music_id=music_id, artist_name=artist_name, music_name=music_name,
-                        love=love, enjoy=enjoy, sentimental=sentimental, 
-                        sad=sad, stressed=stressed)
+                          love=love, enjoy=enjoy, sentimental=sentimental, 
+                          sad=sad, stressed=stressed)
             music.save()
             print("%dth is done." % i)
         print("All saved!")

@@ -1,5 +1,6 @@
 # VSCODE
 .vscode/*
+website/.vscode/*
 # pycache
 __pycache__/*
 # jupyter
