@@ -7,8 +7,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>플레이리스트</title>
+    <script>
+        var counter = 0;
+        let results = {{ results | safe }};
+        function showNextItem() {
+            let artistName = results[counter % results.length].artist_name;
+            let musicName = results[counter % results.length].music_name;
+            document.getElementById('artistName').innerHTML = "Artist: " + artistName;
+            document.getElementById('musicName').innerHTML = "Music: " + musicName;
+            counter++;
+        }
+        window.onload = showNextItem;
+    </script>
 </head>
 <body>
     <h1>Hello world!</h1>
     <img id="userImg" alt="사용자 이미지" src="/media/temp.png">
+    <div id="music" style="border: 1px solid black;">
+        <div id="artistName" style="border: 1px solid black;"></div>
+        <div id="musicName" style="border: 1px solid black;"></div>
+    </div>
+    <p>
+        <label>다음 추천곡 보기: <input type="submit" onclick="showNextItem()"></label>
+    </p>
 </html>
