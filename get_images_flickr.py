@@ -7,7 +7,7 @@ api_secret = u'b8f61718b615bb8e'
 flickr = flickrapi.FlickrAPI(api_key, api_secret, cache=True)
 
 # 키워드는 바꾸기 가능
-keywords = ['love', 'enjoy', 'sentimental', 'sad', 'stressed']
+keywords = ['enjoy']
 # 이미지 개수도 바꾸기 가능
 n_max = 10
 
