@@ -37,8 +37,11 @@ def get_images_from_urls(urls):
     """Read images from urls"""
     images = []
     for i, url in enumerate(urls):
-        images.append(io.imread(url))
-        print("%dth image downloaded" % i)
+        try:
+            images.append(io.imread(url))
+            print("%dth image downloaded" % i)
+        except Exception:
+            continue
     return images
 
 def save_images(images, prefix, path):
