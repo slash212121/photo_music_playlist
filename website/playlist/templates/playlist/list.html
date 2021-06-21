@@ -1,214 +1,51 @@
-<!---페이지 설명 : 모델링 거친 음악 정보 및 사진(?) 띄우는 마지막페이지(송유진) --->
-<<<<<<< HEAD
-<!DOCTYPE HTML>
-
-<html lang="ko">
-  <head>
-    <title>playlist</title>
-    <style>
-
-      * {margin:0;padding:0;box-sizing:border-box;}
-      ul, li {list-style:none;}
-      
-      [name="slide"] {display:none;}
-      .slidebox {max-width:1000px;width:100%;margin:0 auto;text-align:center;}
-      .slidebox img {max-width:100%;}
-      .slidebox .slidelist {
-        white-space:nowrap;
-        font-size:0;
-        overflow:hidden;
-      }
-      .slidebox .slideitem {
-        position:relative;
-        display:inline-block;
-        vertical-align:middle;
-        width:100%;
-        transition:all .35s;
-      }
-      .slidebox .slideitem label {
-        position:absolute;
-        z-index:1;
-        top:50%;
-        transform:translateY(-50%);
-        padding:20px;
-        border-radius:50%;
-        cursor:pointer;
-      }
-      label.left {
-        left:20px;
-        background-color:#5F5F5F;
-        background-image:url('assets/css/images/left-arrow.png');
-        background-position:center center;
-        background-size:50%;
-        background-repeat:no-repeat;
-      }
-      label.right {
-        right:20px;
-        background-color:#5F5F5F;
-        background-image:url('assets/css/images/right-arrow.png');
-        background-position:center center;
-        background-size:50%;
-        background-repeat:no-repeat;
-      }
-      
-      /* 페이징 스타일 */
-      .paginglist {text-align:center;padding:30px 0;}
-      .paginglist > li {display:inline-block;vertical-align:middle;margin:0 10px;}
-      .paginglist > li > label {display:block;padding:10px 30px;border-radius:10px;background:#ccc;cursor:pointer;}
-      .paginglist > li:hover > label {background:#333;}
-      
-      [id="slide01"]:checked ~ .slidelist .slideitem {transform:translateX(0);animation:slide01 10s infinite;}
-      [id="slide02"]:checked ~ .slidelist .slideitem {transform:translateX(-100%);animation:slide02 10s infinite;}
-      [id="slide03"]:checked ~ .slidelist .slideitem {transform:translateX(-200%);animation:slide03 10s infinite;}
-      [id="slide04"]:checked ~ .slidelist .slideitem {transform:translateX(-300%);animation:slide04 10s infinite;}
-      [id="slide05"]:checked ~ .slidelist .slideitem {transform:translateX(-400%);animation:slide05 10s infinite;}
-      
-      @keyframes slide01 {
-        0% {left:0%;}
-        18% {left:0%;}
-        20% {left:-100%;}
-        38% {left:-100%;}
-        40% {left:-200%;}
-        58% {left:-200%;}
-        60% {left:-300%;}
-        78% {left:-300%;}
-        80% {left:-400%;}
-        98% {left:-400%;}
-        100% {left:0%;}
-      }
-      @keyframes slide02 {
-        0% {left:0%;}
-        18% {left:0%;}
-        20% {left:-100%;}
-        38% {left:-100%;}
-        40% {left:-200%;}
-        58% {left:-200%;}
-        60% {left:-300%;}
-        78% {left:-300%;}
-        80% {left:100%;}
-        98% {left:100%;}
-        100% {left:0%;}
-      }
-      @keyframes slide03 {
-        0% {left:0%;}
-        18% {left:0%;}
-        20% {left:-100%;}
-        38% {left:-100%;}
-        40% {left:-200%;}
-        58% {left:-200%;}
-        60% {left: 200%;}
-        78% {left: 200%;}
-        80% {left: 100%;}
-        98% {left: 100%;}
-        100% {left:0%;}
-      }
-      @keyframes slide04 {
-        0% {left:0%;}
-        18% {left:0%;}
-        20% {left:-100%;}
-        38% {left:-100%;}
-        40% {left: 300%;}
-        58% {left: 300%;}
-        60% {left: 200%;}
-        78% {left: 200%;}
-        80% {left: 100%;}
-        98% {left: 100%;}
-        100% {left:0%;}
-      }
-      @keyframes slide05 {
-        0% {left:0%;}
-        18% {left:0%;}
-        20% {left: 400%;}
-        38% {left: 400%;}
-        40% {left: 300%;}
-        58% {left: 300%;}
-        60% {left: 200%;}
-        78% {left: 200%;}
-        80% {left: 100%;}
-        98% {left: 100%;}
-        100% {left:0%;}
-      }
-      </style>
-      
-      <div class="slidebox">
-        <input type="radio" name="slide" id="slide01" checked>
-        <input type="radio" name="slide" id="slide02">
-        <input type="radio" name="slide" id="slide03">
-        <input type="radio" name="slide" id="slide04">
-        <input type="radio" name="slide" id="slide05">
-        <ul class="slidelist">
-          <li class="slideitem">
-            <div>
-              <label for="slide05" class="left"></label>
-              <label for="slide02" class="right"></label>
-              <a><img src="assets\css\images\001.png"></a>
-            </div>
-          </li>
-          <li class="slideitem">
-            <div>
-              <label for="slide01" class="left"></label>
-              <label for="slide03" class="right"></label>
-              <a><img src="assets\css\images\002.png"></a>
-            </div>
-          </li>
-          <li class="slideitem">
-            <div>
-              <label for="slide02" class="left"></label>
-              <label for="slide04" class="right"></label>
-              <a><img src="assets\css\images\003.png"></a>
-            </div>
-          </li>
-          <li class="slideitem">
-            <div>
-              <label for="slide03" class="left"></label>
-              <label for="slide05" class="right"></label>
-              <a><img src="assets\css\images\004.png"></a>
-            </div>
-          </li>
-          <li class="slideitem">
-            <div>
-              <label for="slide04" class="left"></label>
-              <label for="slide01" class="right"></label>
-              <a><img src="assets\css\images\005.png"></a>
-            </div>
-          </li>
-        </ul>
-      </div>
-=======
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
 <head>
+  <link rel="stylesheet" type="text/css" href="{% static 'playlist/css/css_유진.css' %}">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>플레이리스트</title>
+    <title>추천플레이리스트</title>
     <script>
         var counter = 0;
         let results = {{ results | safe }};
         function showNextItem() {
             let artistName = results[counter % results.length].artist_name;
             let musicName = results[counter % results.length].music_name;
-            document.getElementById('artistName').innerHTML = "Artist: " + artistName;
-            document.getElementById('musicName').innerHTML = "Music: " + musicName;
+            document.getElementById('artistName').innerHTML = "" + artistName;
+            document.getElementById('musicName').innerHTML = "" + musicName;
             counter++;
         }
         window.onload = showNextItem;
     </script>
+
 </head>
-<body>
-    <h1>Hello world!</h1>
-    <img id="userImg" alt="사용자 이미지" src="/media/temp.png">
-<<<<<<< HEAD
-</html>
->>>>>>> adc140e530693ab73203c06adc4f609a4a8632e8
-=======
-    <div id="music" style="border: 1px solid black;">
-        <div id="artistName" style="border: 1px solid black;"></div>
-        <div id="musicName" style="border: 1px solid black;"></div>
+    <div>
+      <div style="position: absolute;">
+        <div style="position: relative; top: 39px; left: 550px;"><img src="/media/temp.png" width= 570 height=480></img>
+        </div>
+      </div>
+      <div style="position: absolute;">
+        <div style="position: relative; top: 770px; left: 890px;"><input type="submit" id="search" alt="search" value="" onclick="showNextItem()">
+        </div>
+      </div>
+
+      <div style="position: absolute;">
+        <div style="position: relative; top: 600px; left: 890px;"><div id="musicName" style="border: 4px solid lightskyblue;"></div>
+        </div>
+      </div>
+      <div style="position: absolute;">
+        <div style="position: relative; top: 640px; left: 890px;"><div id="artistName" style="border: 4px solid lightskyblue;"></div>
+        </div>
+      </div>
+
+      <img src="/media/플레이리스트-002.png"></img>
     </div>
-    <p>
-        <label>다음 추천곡 보기: <input type="submit" onclick="showNextItem()"></label>
-    </p>
+
+
+    
+    
+
 </html>
->>>>>>> 7849b0bee99802d11df20a3b4b039cad40385151

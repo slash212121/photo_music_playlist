@@ -1,0 +1,7 @@
+input#search {
+    background:url(/media/playbutton2.png);
+    background-repeat:no-repeat;
+    width:100px;
+    height:100px;
+    border:0;
+}
