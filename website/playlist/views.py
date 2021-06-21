@@ -14,6 +14,9 @@ from playlist.models import Music
 def index(request):
     return render(request, 'playlist/index_copy.html')
 
+def to_index(request):
+    return render(request, 'playlist/index.html')
+
 def recommend(request):
     image = request.FILES['imageUpload']
     image_arr = _grab_image(stream=image)
