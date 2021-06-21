@@ -1,5 +1,6 @@
-<!--페이지 : 우리 프로젝트 설명 및 3초 후 index.html로 토스(신혜연)-->
+<!-- 첫번째 페이지 : 포토 뮤직 플레이리스트 설명 및 20초 후 or 버튼 눌렀을 경우 index.html(신혜연) -->
 	<!DOCTYPE HTML>
+	{% load static %}
 <!--
 	Aerial by HTML5 UP
 	html5up.net | @ajlkn
@@ -9,11 +10,18 @@
 	<head>
 		<title>YBIGTA</title>
 		<meta charset="utf-8" />
+		<meta http-equiv="imagetoolbar" content="no" />
+		<!--(기능1)20초 뒤에 index.html로 이동하는 metatag
+		<meta http-equiv="refresh" content="20;url=index.html">-->
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link type="text/css" rel="stylesheet" href="{% static 'playlist/css/main.css' %}" />
+		<noscript><link rel="stylesheet" href="{% static 'playlist/css/noscript.css' %}"  /></noscript>
+		<!--fontawesome-->
+		<script src="https://kit.fontawesome.com/e38f07716c.js" crossorigin="anonymous"></script>
+
 	</head>
 	<body class="is-preload">
+		<i class="fa-thin fa-circle-play"></i>
 		<div id="wrapper">
 			<div id="bg"></div>
 			<div id="overlay"></div>
@@ -26,8 +34,10 @@
 						<p>김수빈&nbsp;&bull;&nbsp;노시영&nbsp;&bull;&nbsp;송유진&nbsp;&bull;&nbsp;신혜연&nbsp;&bull;&nbsp;오태진&nbsp;&bull;&nbsp;정재은</p>
 						<nav>
 							<ul>
-								<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							
+								<!--(기능2)버튼 누를 경우 index.html로-->
+								<li><a href="to_index/" class="icon solid fa-thin fa-play"><span class="label">Play</span></a></li>
+								<!--(글자 뜨게)다음 칸에 넣되, 목록을 만들어서 icon 다음에 뜨게-->
+								<p><li><h4>START!</h4></li></p>
 							</ul>
 						</nav>
 					</header>
@@ -36,7 +46,6 @@
 					<footer id="footer">
 						<span class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>.</span>
 					</footer>
-
 			</div>
 		</div>
 		<script>
