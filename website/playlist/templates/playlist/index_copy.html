@@ -1,5 +1,6 @@
 <!-- 첫번째 페이지 : 포토 뮤직 플레이리스트 설명 및 20초 후 or 버튼 눌렀을 경우 index.html(신혜연) -->
 	<!DOCTYPE HTML>
+	{% load static %}
 <!--
 	Aerial by HTML5 UP
 	html5up.net | @ajlkn
@@ -13,8 +14,8 @@
 		<!--(기능1)20초 뒤에 index.html로 이동하는 metatag
 		<meta http-equiv="refresh" content="20;url=index.html">-->
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link type="text/css" rel="stylesheet" href="/assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+		<link type="text/css" rel="stylesheet" href="{% static 'playlist/css/main.css' %}" />
+		<noscript><link rel="stylesheet" href="{% static 'playlist/css/noscript.css' %}"  /></noscript>
 		<!--fontawesome-->
 		<script src="https://kit.fontawesome.com/e38f07716c.js" crossorigin="anonymous"></script>
 
