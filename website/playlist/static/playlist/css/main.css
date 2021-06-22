@@ -18,7 +18,7 @@ tfoot, thead, tr, th, td, article, aside,
 canvas, details, embed, figure, figcaption,
 footer, header, hgroup, menu, nav, output, ruby,
 section, summary, time, mark, audio, video {
-	margin: 0;
+	margin: 0;ㅈ
 	padding: 0;
 	border: 0;
 	font-size: 100%;
@@ -212,10 +212,10 @@ input, select, textarea {
 /* BG */
 
 	#bg {
-		-moz-animation: bg 60s linear infinite;
-		-webkit-animation: bg 60s linear infinite;
-		-ms-animation: bg 60s linear infinite;
-		animation: bg 60s linear infinite;
+		-moz-animation: bg 0s linear infinite;
+		-webkit-animation: bg 0s linear infinite;
+		-ms-animation: bg 0s linear infinite;
+		animation: bg 0s linear infinite;
 		-moz-backface-visibility: hidden;
 		-webkit-backface-visibility: hidden;
 		-ms-backface-visibility: hidden;
@@ -226,10 +226,11 @@ input, select, textarea {
 		transform: translate3d(0,0,0);
 	/* Set your background with this */
 
-		/*배경사진 넣는 곳*/
-		background: #348cb2 url("images/JEJU1.JPG") bottom left;
+		/*배경사진 넣는 곳*#348cb2, 아이폰 절반 #324f52, 이어폰 대화 #ff0101 도시는 #b4d7e1*/
+		/* 괜찮 : 남자1(가만히),탁자에 휴대폰(가만히), 2(움직), 피아노,도시(움직), waveform(움직)*/
+		background: #000000 url("images/man\ listening\ music1.jpg") bottom left;
 		background-repeat: repeat-x;
-		height: 90%;
+		height: 100%;
 		left: 0;
 		opacity: 1;
 		position: fixed;
@@ -381,7 +382,7 @@ input, select, textarea {
 			display: inline-block;
 			height: 100%;
 			margin-right: 0;
-			vertical-align: middle;
+			vertical-align:middle;
 			width: 1px;
 		}
 
@@ -559,6 +560,7 @@ input, select, textarea {
 			font-weight: 900;
 			letter-spacing: -0.035em;
 			line-height: 1em;
+			color: rgb(255, 255, 255); /*폰트 색깔?*/
 		}
 
 			/*(주석)마우스 오버했을 경우*/
@@ -583,6 +585,7 @@ input, select, textarea {
 			font-weight: 900;
 			letter-spacing: -0.035em;
 			line-height: 1em;
+			color: rgb(255, 255, 255); /*폰트 색깔?*/
 		}
 
 		#header h4 {
@@ -708,7 +711,7 @@ input, select, textarea {
 					-ms-transition: all 0.2s ease-in-out;
 					transition: all 0.2s ease-in-out;
 					border-radius: 100%;
-					border: solid 1px #fff;
+					border: solid 1px rgb(255, 255, 255); 
 					display: block;
 					font-size: 1.75em;
 					height: 2.5em;
