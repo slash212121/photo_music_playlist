@@ -5,10 +5,28 @@ import os
 import json
 import numpy as np
 import urllib
+import torch
+import torch.nn as nn
+import torchvision.models as models
+import torchvision.transforms as transforms
 import io
 from PIL import Image
 
 from playlist.models import Music
+
+class Resnext50(nn.Module):
+    def __init__(self, n_classes):
+        super().__init__()
+        resnet = models.resnext50_32x4d()
+        resnet.fc = nn.Sequential(
+            nn.Dropout(p=0.2),
+            nn.Linear(in_features=resnet.fc.in_features, out_features=n_classes)
+        )
+        self.base_model = resnet
+        self.sigm = nn.Sigmoid()
+
+    def forward(self, x):
+        return self.sigm(self.base_model(x))
 
 # Create your views here.
 def index(request):
@@ -24,8 +42,21 @@ def recommend(request):
     # 사용자로부터 받은 이미지 저장
     image_save.save(os.path.join(MEDIA_ROOT, 'temp.png'))
     ############ model part ###########
-
-
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    model_path = 'best_model.pth'
+    checkpoint = torch.load(model_path, map_location=device)
+    state_dict = checkpoint.get('net')
+    transform = transforms.Compose([
+        transforms.Resize([256, 256]),
+        transforms.ToTensor(),
+        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+    ])
+    img = transform(image_save).unsqueeze(0).to(device).double()
+    model = Resnext50(5)
+    model = model.to(device).double()
+    model.load_state_dict(state_dict, strict=True)
+    pred = model(img)
+    print(pred)
     ###################################
     # temporary output
     results = list(Music.objects.all()[:10])
