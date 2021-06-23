@@ -33,7 +33,8 @@ def index(request):
     return render(request, 'playlist/index_copy.html')
 
 def to_index(request):
-    return render(request, 'playlist/index.html')
+    return render(request, 'playlist/list.html')
+# 6.24 혜연 : 수빈님 바뀐 html에 맞춰서 list.html을 index_old.html로 수정해야 함. (혹은 index_old 명을 변경)
 
 def recommend(request):
     image = request.FILES['imageUpload']
@@ -66,6 +67,7 @@ def recommend(request):
     ]
     results = json.dumps(results)
     return render(request, 'playlist/list.html', {'results': results})
+# 6.24 혜연 : 수빈님 바뀐 html에 맞춰서 list.html을 index_old.html로 수정해야 함. (혹은 index_old 명을 변경)
 
 def _grab_image(path=None, stream=None, url=None):
     # if the path is not None, then load the image from disk
