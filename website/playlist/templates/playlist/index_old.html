@@ -1,0 +1,52 @@
+<!---페이지 설명 : 3초 후에 뜨면 사진 제출 후, list.html로 토스(김수빈) --->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/index.css" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="suggest-l"></div>
+    <div class="start"><h1>Start</h1></div>
+    <div class="making"><h1>making your</h1></div>
+    <div class="playlist"><h1>Playlist!</h1></div>
+        <div class="iphone-l">
+        <div class="screen-ll">
+            <form method="POST" action="recommend/" enctype="multipart/form-data">
+                {% csrf_token %}
+                <p>
+                    <label>
+                        &nbsp사진을 업로드해주세요: <input required type="file" id="imageUpload" name="imageUpload" accept=".jpg,.JPG,.png,.PNG,.jpeg,.JPEG">
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        &nbsp제출: <input type="submit" id="submit" name="submit">
+                    </label>
+                </p>
+            </form>
+            <div id="wrapper">
+            <div class="menu-l">
+                <div id="js-content" class="content-ll">
+                <div class="section-b"></div>
+                <div class="section-b is-watermellon"></div>
+                <div class="section-b is-fish"></div>
+                <div class="section-b is-donut"></div>
+                <div class="section-b is-icecreame"></div>
+                <div class="section-b is-bananas"></div>
+                <div class="section-b is-drink"></div>
+                <div class="section-b is-candies"></div>
+                <div class="section-b is-pizza"></div>
+                <div class="section-b is-china"></div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+</body>
+</html>
