@@ -226,9 +226,9 @@ input, select, textarea {
 		transform: translate3d(0,0,0);
 	/* Set your background with this */
 
-		/*배경사진 넣는 곳*#348cb2, 아이폰 절반 #324f52, 이어폰 대화 #ff0101 도시는 #b4d7e1*/
-		/* 괜찮 : 남자1(가만히),탁자에 휴대폰(가만히), 2(움직), 피아노,도시(움직), waveform(움직)*/
-		background: #000000 url("images/man\ listening\ music1.jpg") bottom left;
+		/* listening-to-music-at-sunset 크기 1920x1080, 1920x1200 2type*/
+		/* Digital Image from https://wallpaperaccess.com/listening-to-music/*/
+		background: #000000 url("images/listening-to-music-at-sunset\(1920x1080\).jpg") bottom left;
 		background-repeat: repeat-x;
 		height: 100%;
 		left: 0;
@@ -560,17 +560,18 @@ input, select, textarea {
 			font-weight: 900;
 			letter-spacing: -0.035em;
 			line-height: 1em;
-			color: rgb(255, 255, 255); /*폰트 색깔?*/
+			color: rgb(255, 255, 255); /*폰트 색깔*/
 		}
 
 			/*(주석)마우스 오버했을 경우*/
 			#header h1:hover {
-				font-size: 1.2em;
+				font-size: 4.5em;
+				color: rgb(249,100,49);
 			}
 
 				#header h1:hover:before {
-					/*background-color: rgba(255, 255, 255, 0.175);
-					color: #fff;*/
+					background-color: rgba(255, 255, 255, 0.175);
+					color: #fff;
 				}
 
 		#header h2 {
@@ -585,7 +586,7 @@ input, select, textarea {
 			font-weight: 900;
 			letter-spacing: -0.035em;
 			line-height: 1em;
-			color: rgb(255, 255, 255); /*폰트 색깔?*/
+			color: rgb(255, 255, 255); /*폰트 색깔*/
 		}
 
 		#header h4 {
@@ -723,7 +724,7 @@ input, select, textarea {
 				}
 				/*(주석)마우스 오버했을 경우*/
 				#header nav a:hover {
-					font-size: 1.2em;
+					font-size: 4.5em;
 				}
 
 					#header nav a:hover:before {
