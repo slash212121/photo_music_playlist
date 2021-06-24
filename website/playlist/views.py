@@ -3,6 +3,7 @@ from website.settings import MEDIA_ROOT
 from playlist.models import Music
 
 import os
+from random import shuffle
 import json
 import numpy as np
 import urllib
@@ -75,18 +76,22 @@ def _recommend(arr):
     emotions_to_int = {'love': 0, 'enjoy': 1, 'sentimental': 2, 'sad': 3, 'stressed': 4}
     int_to_emotions = {v: k for k, v in emotions_to_int.items()}
     dominant_emotion = int_to_emotions[np.argmax(arr)]
+    print(dominant_emotion)
     # fetch all
-    musics = Music.objects.all()
+    musics = list(Music.objects.all())
     # fetch musics with dominant emotion
-    musics = [m for m in musics if getattr(m, dominant_emotion) == 1]
+    # musics = [m for m in musics if getattr(m, dominant_emotion) == 1]
     # key: music_id, value: score
-    musics_score = {m.music_id: max(arr) for m in musics}
-    sub_emotions = [e for e in emotions_to_int.keys() if e != dominant_emotion]
+    musics_score = {m.music_id: [0, 1] for m in musics}
+    # sub_emotions = [e for e in emotions_to_int.keys() if e != dominant_emotion]
+    emotions = [e for e in emotions_to_int.keys()]
     for m in musics:
-        for e in sub_emotions:
+        for e in emotions:
             if getattr(m, e) == 1:
-                musics_score[m.music_id] += arr[emotions_to_int[e]]
-    musics.sort(key=lambda x: -musics_score[x.music_id])
+                musics_score[m.music_id][0] += arr[emotions_to_int[e]]
+                musics_score[m.music_id][1] += 1
+    shuffle(musics)
+    musics.sort(key=lambda x: -musics_score[x.music_id][0] / musics_score[x.music_id][1])
     musics = musics[:20]
     return musics
 
