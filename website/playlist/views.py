@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from website.settings import MEDIA_ROOT
+from playlist.models import Music
 
 import os
 import json
@@ -56,17 +57,38 @@ def recommend(request):
     model = Resnext50(5)
     model = model.to(device).double()
     model.load_state_dict(state_dict, strict=True)
-    pred = model(img)
-    print(pred)
+    pred = model(img).detach().numpy().squeeze()
     ###################################
     # temporary output
-    results = list(Music.objects.all()[:10])
+    # results = list(Music.objects.all()[:10])
+    # 추천
+    results = _recommend(pred)
     results = [
         {'artist_name': r.artist_name, 'music_name': r.music_name} \
         for r in results
     ]
     results = json.dumps(results)
     return render(request, 'playlist/list.html', {'results': results})
+
+def _recommend(arr):
+    # sad, sentimental index 확인 필요!!!
+    emotions_to_int = {'love': 0, 'enjoy': 1, 'sentimental': 2, 'sad': 3, 'stressed': 4}
+    int_to_emotions = {v: k for k, v in emotions_to_int.items()}
+    dominant_emotion = int_to_emotions[np.argmax(arr)]
+    # fetch all
+    musics = Music.objects.all()
+    # fetch musics with dominant emotion
+    musics = [m for m in musics if getattr(m, dominant_emotion) == 1]
+    # key: music_id, value: score
+    musics_score = {m.music_id: max(arr) for m in musics}
+    sub_emotions = [e for e in emotions_to_int.keys() if e != dominant_emotion]
+    for m in musics:
+        for e in sub_emotions:
+            if getattr(m, e) == 1:
+                musics_score[m.music_id] += arr[emotions_to_int[e]]
+    musics.sort(key=lambda x: -musics_score[x.music_id])
+    musics = musics[:20]
+    return musics
 
 def _grab_image(path=None, stream=None, url=None):
     # if the path is not None, then load the image from disk
