@@ -565,8 +565,8 @@ input, select, textarea {
 
 			/*(주석)마우스 오버했을 경우*/
 			#header h1:hover {
-				font-size: 4.5em;
-				color: rgb(249,100,49);
+				font-size: 4.9em;
+				color: rgba(235, 111, 70, 0.918); /*(h1 글자색상 변경, @유진*/
 			}
 
 				#header h1:hover:before {
@@ -722,9 +722,9 @@ input, select, textarea {
 					top: 0;
 					width: 2.5em;
 				}
-				/*(주석)마우스 오버했을 경우*/
+				/*(주석)마우스 오버했을 경우 플레이버튼*/
 				#header nav a:hover {
-					font-size: 4.5em;
+					font-size: 1.2em;
 				}
 
 					#header nav a:hover:before {
@@ -733,13 +733,14 @@ input, select, textarea {
 					}
 				/*(주석)마우스 클릭했을 경우*/
 				#header nav a:active {
-					font-size: 0.95em;
+					font-size: 0.9em;
 					background: none;
 				}
 
 					#header nav a:active:before {
-						background-color: rgba(255, 255, 255, 0.35);
-						color: #fff;
+						background-color: rgba(235, 111, 70, 0.589)/*(플레이리스트 세모 외)@유진*/;
+						color: rgb(0, 0, 0)/*(플레이리스트 세모 외)@유진*/;
+						border: solid 1.5px rgb(0, 0, 0); 
 					}
 
 				#header nav a span {
