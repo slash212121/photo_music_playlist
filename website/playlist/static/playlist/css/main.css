@@ -228,7 +228,7 @@ input, select, textarea {
 
 		/* listening-to-music-at-sunset 크기 1920x1080, 1920x1200 2type*/
 		/* Digital Image from https://wallpaperaccess.com/listening-to-music/*/
-		background: #000000 url("images/listening-to-music-at-sunset\(1920x1080\).jpg") bottom left;
+		background: #000000 url("/media/sunset.png") bottom left;
 		background-repeat: repeat-x;
 		height: 100%;
 		left: 0;
@@ -566,7 +566,7 @@ input, select, textarea {
 			/*(주석)마우스 오버했을 경우*/
 			#header h1:hover {
 				font-size: 4.9em;
-				color: rgba(235, 111, 70, 0.918); /*(h1 글자색상 변경, @유진*/
+				color: rgba(255, 115, 0); /*(h1 글자색상 변경, @유진*/
 			}
 
 				#header h1:hover:before {
@@ -738,9 +738,9 @@ input, select, textarea {
 				}
 
 					#header nav a:active:before {
-						background-color: rgba(235, 111, 70, 0.589)/*(플레이리스트 세모 외)@유진*/;
+						background-color: rgb(255, 115, 0)/*(플레이리스트 세모 외)@유진*/;
 						color: rgb(0, 0, 0)/*(플레이리스트 세모 외)@유진*/;
-						border: solid 1.5px rgb(0, 0, 0); 
+						border: solid 1.5px rgb(255, 115, 0); 
 					}
 
 				#header nav a span {
