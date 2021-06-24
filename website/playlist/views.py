@@ -33,7 +33,7 @@ def index(request):
     return render(request, 'playlist/index_copy.html')
 
 def to_index(request):
-    return render(request, 'playlist/list.html')
+    return render(request, 'playlist/index.html')
 # 6.24 혜연 : 수빈님 바뀐 html에 맞춰서 list.html을 index_old.html로 수정해야 함. (혹은 index_old 명을 변경)
 
 def recommend(request):
