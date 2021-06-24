@@ -5,35 +5,28 @@
 <head>
     <link rel="stylesheet" type="text/css" href="{% static 'playlist/css/css_유진.css' %}">
     <meta charset="UTF-8">
-    <meta name="Generator" content="EditPlus®">
-    <meta name="Author" content="">
-    <meta name="Keywords" content="">
-    <meta name="Description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>사진업로드</title>
-    <style type="text/css">
-        .file_input_textbox {float:left; height:29px;}
-        .file_input_div {position:relative; width:80px; height:36px; overflow:hidden;}
-        .file_input_img_btn {padding:0 0 0 5px;}
-        .file_input_hidden {font-size:29px; position:absolute; right:0px; top:0px; opacity:0; filter: alpha(opacity=0); -ms-filter: alpha(opacity=0); cursor:pointer;}
-    </style>
+    
 </head>
 
 <body>    
     <form method="POST" action="/recommend/" enctype="multipart/form-data">
         {% csrf_token %}
+
+        <p>
+            <label>
+                <input required type="file" id="imageUpload" name="imageUpload" accept=".jpg,.JPG,.png,.PNG,.jpeg,.JPEG">
+            </label>
+        </p>
+        
+
         <div>
-            <div style="position: absolute;">
+            <div style="position: absolute;">    
                 <p>
                     <label>
-                        <div style="position: relative; "><input required type="file" id="imageUpload" name="imageUpload" accept=".jpg,.JPG,.png,.PNG,.jpeg,.JPEG">
-                    </label>
-                </p>
-                
-                <p>
-                    <label>
-                        <div style="position: relative; top: 770px; left: 900px;"><input type=image src="/media/head.png" alt='Click!'>
+                        <div style="position: relative; top: 750px; left: 855px;"><input type=image src="/media/head2.png" alt='Click!'>
                     </label>
                 </p>
             </div>
@@ -43,9 +36,3 @@
     </form>
 </body>
 </html>
-
-
-    <!---<div style="position: absolute">
-      <div style="color: rgba(255, 115, 0) ;position: relative; top: 580px; left : 450px "><div id="musicName"></div>
-      </div>
-    </div> --->
