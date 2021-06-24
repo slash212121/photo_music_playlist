@@ -33,7 +33,7 @@ def index(request):
     return render(request, 'playlist/index_copy.html')
 
 def to_index(request):
-    return render(request, 'playlist/list.html')
+    return render(request, 'playlist/index.html')
 # 6.24 혜연 : 수빈님 바뀐 html에 맞춰서 list.html을 index_old.html로 수정해야 함. (혹은 index_old 명을 변경)
 
 def recommend(request):
@@ -63,11 +63,10 @@ def recommend(request):
     results = list(Music.objects.all()[:10])
     results = [
         {'artist_name': r.artist_name, 'music_name': r.music_name} \
-        for r in results 
+        for r in results
     ]
     results = json.dumps(results)
     return render(request, 'playlist/list.html', {'results': results})
-# 6.24 혜연 : 수빈님 바뀐 html에 맞춰서 list.html을 index_old.html로 수정해야 함. (혹은 index_old 명을 변경)
 
 def _grab_image(path=None, stream=None, url=None):
     # if the path is not None, then load the image from disk
@@ -75,7 +74,7 @@ def _grab_image(path=None, stream=None, url=None):
     if path is not None:
         image = Image.open(path)
 	# otherwise, the image does not reside on disk
-    else:	
+    else:
 		# if the URL is not None, then download the image
         if url is not None:
             resp = urllib.urlopen(url)
@@ -85,6 +84,6 @@ def _grab_image(path=None, stream=None, url=None):
             data = stream.read()
 		# convert the image to a NumPy array and then read it into
         bytearr = bytearray(data)
-        image = Image.open(io.BytesIO(bytearr))
+        image = Image.open(io.BytesIO(bytearr)).convert('RGB')
     image = np.asarray(image)
     return image
