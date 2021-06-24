@@ -73,7 +73,7 @@ def recommend(request):
 
 def _recommend(arr):
     # sad, sentimental index 확인 필요!!!
-    emotions_to_int = {'love': 0, 'enjoy': 1, 'sentimental': 2, 'sad': 3, 'stressed': 4}
+    emotions_to_int = {'love': 0, 'enjoy': 1, 'sad': 2, 'sentimental': 3, 'stressed': 4}
     int_to_emotions = {v: k for k, v in emotions_to_int.items()}
     dominant_emotion = int_to_emotions[np.argmax(arr)]
     print(dominant_emotion)
