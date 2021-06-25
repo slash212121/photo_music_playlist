@@ -1,38 +1,63 @@
 <!---페이지 설명 : 3초 후에 뜨면 사진 제출 후, list.html로 토스(김수빈) --->
+
 <!DOCTYPE html>
+
 {% load static %}
+
 <html lang="en">
+
+
+
 <head>
-    <link rel="stylesheet" type="text/css" href="{% static 'playlist/css/css_유진.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'playlist/css/css_유진2.css' %}">
+
     <meta charset="UTF-8">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>사진업로드</title>
-    
+
+
+
 </head>
 
-<body>    
+
+
+<body>
+
     <form method="POST" action="/recommend/" enctype="multipart/form-data">
+
         {% csrf_token %}
 
-        <p>
-            <label>
-                <input required type="file" id="imageUpload" name="imageUpload" accept=".jpg,.JPG,.png,.PNG,.jpeg,.JPEG">
-            </label>
-        </p>
-        
+        <div class="rect-wrapper">
 
-        <div>
-            <div style="position: absolute;">    
-                <p>
-                    <label>
-                        <div style="position: relative; top: 750px; left: 855px;"><input type=image src="/media/head2.png" alt='Click!'>
-                    </label>
-                </p>
+            <div class="middle-area">
+
+                <label for="file-input">
+
+                    <input id="file-input" required type="file" id="imageUpload" name="imageUpload" accept=".jpg,.JPG,.png,.PNG,.jpeg,.JPEG">
+
+                    <div class="click-text">CLICK!</div>
+
+                </label>
+
             </div>
 
-            <img src="/media/2page.png"></img>
+            <div class="bottom-image-area">
+
+                <input type=image src="/media/head2.png" alt='Click!'>
+
+            </div>
+
         </div>
+
     </form>
+
 </body>
+
+
+
 </html>
