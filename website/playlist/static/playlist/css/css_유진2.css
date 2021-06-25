@@ -1,0 +1,32 @@
+/* by vivid */
+.rect-wrapper {
+  width: 1900px;
+  height: 900px;
+  background:url(/media/2page.png);
+  position: relative;
+}
+
+.middle-area {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+
+.click-text {
+  color: rgb(255, 93,33);
+  font-size: 60px;
+}
+
+.bottom-image-area  input {
+  position: absolute;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#file-input {
+  position: fixed;
+  left: -2000px;
+}
